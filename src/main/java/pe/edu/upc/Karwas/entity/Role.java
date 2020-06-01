@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,11 +25,13 @@ public class Role {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotBlank(message = "Rolename is required")
 	@Column(length = 40, nullable = false)
 	private String rolename;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "person_id")
 	private Person person;
+
 		
 }
