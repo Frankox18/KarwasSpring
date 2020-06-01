@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,15 +25,18 @@ public class Announcement {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotBlank(message = "Service price is required")
 	@Column(name = "serviceprice", length = 30, nullable = false)
 	private Integer serviceprice;
 	
+	@Past(message = "The time announcement must be a past date")
 	@Column(name = "announcementtime", length = 30, nullable = false)
 	private Integer announcementtime;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "branchoffice_id")
 	private Branchoffice branchoffice;
+
 	
 }
 

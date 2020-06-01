@@ -14,7 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -29,9 +29,11 @@ public class Branchoffice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
+	@NotBlank(message = "District is required")
 	@Column(name = "district", length = 30, nullable = false)
     private String district;
     
+	@NotBlank(message = "Direction is required")
 	@Column(name = "direction", length = 30, nullable = false)
     private String direction;
 	
@@ -49,4 +51,5 @@ public class Branchoffice {
     	announcements = new ArrayList<>();
     	employees = new ArrayList<>();
     }
+
 }
