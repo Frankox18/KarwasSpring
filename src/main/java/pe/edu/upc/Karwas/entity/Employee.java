@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,6 +24,7 @@ import lombok.Setter;
 @Setter
 public class Employee extends Person {
 			
+	@Size(min = 8, max = 8, message = "The employee code must be 10 digits")
 	@Column(name = "codeemployee", length = 10, nullable = false)
 	private long codeemployee;
 

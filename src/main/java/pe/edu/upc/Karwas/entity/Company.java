@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,9 +26,11 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
+	@NotBlank(message = "Name is required")
 	@Column(name = "name", length = 30, nullable = false)
     private String name;
-    
+
+	@NotBlank(message = "Ruc is required")
 	@Column(name = "ruc", length = 30, nullable = false)
     private Long ruc;
    
@@ -37,6 +40,6 @@ public class Company {
 	public Company() {
 		branchoffice = new ArrayList<>();
 	}
-    
+
 
 }

@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,15 +26,19 @@ public class Car {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotBlank(message = "License is required")
 	@Column(name = "license", length = 30, nullable = false)
 	private Integer license;
 	
+	@NotBlank(message = "Brand is required")
 	@Column(name = "brand", length = 30, nullable = false)
 	private String brand;
 	
+	@NotBlank(message = "Model is required")
 	@Column(name = "model", length = 30, nullable = false)
 	private String model;
 	
+	@NotBlank(message = "Car type is required")
 	@Column(name = "cartype", length = 30, nullable = false)
 	private String cartype;
 	
@@ -43,5 +48,6 @@ public class Car {
 	
 	@OneToOne(mappedBy = "car")
 	private Washed washed; 
+
 	
 }
