@@ -1,18 +1,72 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace = "layout/layout :: head">
+<head th:replace="layout/layout :: head">
 </head>
 <body>
 	<header th:replace="layout/layout :: header"></header>
+	}
 	<main role="main">
 		<section class="jumbotron text-center">
-		    <div class="container">
-		      <h1>CarWash System</h1>
-		      <p class="lead text-muted">About</p>
-		    </div>
+			<div class="container">
+				<div
+					class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+					<div class="col-md-15 p-lg-15 mx-auto my-15">
+						<h1 class="display-4 font-weight-normal">Karwas</h1>
+						<img
+							src="https://www.negociosrentablesyotros.com/wp-content/uploads/2019/03/limpiar-coche.png">
+						<p class="lead font-weight-normal">Buscamos mejorar la
+							atencion de nuestros clientes en el ambiente del lavado de autos
+							mediante planes de lavado pre registrados y servicios de
+							atencian, los cuales se ofreceran a traves de una buena
+							experiencia de usuario en una aplicacion web. Tambien buscara
+							incluir a los locales de lavado de auto para que den a conocer su
+							servicio. Nuestro producto permite la reservacion de espacios en
+							el local de lavados de autos usando el sistema KARWAS para
+							recibir el servicio. Ademas de encontrar el centro de lavado que
+							mejor le parezca al usuario. Ello le permitira ahorrar tiempo en
+							el proceso de limpieza del automovil.</p>
+
+					</div>
+					<div class="product-device shadow-sm d-none d-md-block"></div>
+					<div
+						class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+				</div>
+				<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+					<div
+						class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+						<div class="my-3 py-3">
+							<h2 class="display-5">Crea tu anuncio</h2>
+							<p class="lead">Publica aqui tu anuncio y has que muchas
+								personas conozcan tu centro de lavado</p>
+							<div class="card-footer text-center">
+								<a href="" class="btn btn-primary"><i
+									class="fas fa-plus-circle"></i> Crear Anuncio</a>
+							</div>
+						</div>
+
+						<img
+							src="https://us.123rf.com/450wm/scyther5/scyther51801/scyther5180100045/92911016-detalles-del-coche-el-hombre-sostiene-la-microfibra-en-la-mano-y-pule-el-autom%C3%B3vil-enfoque-selectivo.jpg?ver=6">
+					</div>
+
+					<div
+						class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+						<div class="my-3 p-3">
+							<h2 class="display-5">Olvidate de las colas, Reserva aqui</h2>
+							<p class="lead">Con esta programa no deberas esperar mas</p>
+							<div class="card-footer text-center">
+								<a href="" class="btn btn-primary"><i
+									class="fas fa-plus-circle"></i> Reserva tu cita</a>
+							</div>
+							<div class="bg-dark shadow-sm mx-auto"
+								style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+						</div>
+
+
+					</div>
+				</div>
 		</section>
-	</main>		
-  		
+	</main>
+
 	<footer th:replace="layout/layout :: footer"></footer>
 </body>
 </html>
