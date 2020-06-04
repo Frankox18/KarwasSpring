@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -37,4 +38,7 @@ public class Person {
 	
 	@Column(name="address", length=40, nullable=false)
 	private String address;
+	
+	@OneToOne(mappedBy = "person")
+	private User user;
 }

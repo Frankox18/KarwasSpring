@@ -8,4 +8,5 @@ import pe.edu.upc.Karwas.model.entity.Role;
 public interface RoleService extends CrudService<Role, Integer>{
 
 	List<Role> findByNameRole( String nameRole ) throws Exception;
+	
 }

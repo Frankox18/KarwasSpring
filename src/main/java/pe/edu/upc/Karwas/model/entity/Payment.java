@@ -1,10 +1,14 @@
 package pe.edu.upc.Karwas.model.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -22,4 +26,11 @@ public class Payment {
 	
 	@Column(name = "method", length = 30, nullable = false)
     private String method;
+	
+	@OneToMany(mappedBy = "payment")
+	private List<ServiceDetail> servicesDetails;
+	
+	public Payment() {
+		servicesDetails = new ArrayList<>();
+	}
 }

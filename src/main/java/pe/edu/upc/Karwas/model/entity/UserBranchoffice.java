@@ -1,7 +1,5 @@
 package pe.edu.upc.Karwas.model.entity;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,18 +14,32 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "announcements")
+@Table(name = "users_branchoffices")
 @Getter
 @Setter
-public class Announcement {
+public class UserBranchoffice {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "announcementTime", length = 30, nullable = false)
-	private Date announcementTime;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User user; 
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "branchOffice_id")
+	@JoinColumn(name = "branch_office_id")
 	private BranchOffice branchOffice;
+	
+	@Column(name = "work_shift", length = 40, nullable = false)
+	private String workShift;
+	
+	@Column(name = "work_hour", length = 2 ,nullable = false)
+	private int workHour;
+	
+	@Column(name = "start_hour",length = 2,nullable = false)
+	private int startHour;
+	
+	@Column(name = "end_hour", length = 2 ,nullable = false)
+	private int endHour;
 }

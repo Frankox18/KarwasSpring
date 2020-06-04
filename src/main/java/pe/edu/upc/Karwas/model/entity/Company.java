@@ -20,12 +20,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Company {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
 	@Column(name = "name", length = 30, nullable = false)
-    private String namee;
+    private String name;
     
 	@Column(name = "ruc", length = 30, nullable = false)
     private Long ruc;

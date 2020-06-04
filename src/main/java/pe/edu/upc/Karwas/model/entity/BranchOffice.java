@@ -1,5 +1,6 @@
 package pe.edu.upc.Karwas.model.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -40,7 +40,12 @@ public class BranchOffice {
 	@OneToMany(mappedBy="branchOffice", fetch = FetchType.LAZY)
     private List<Announcement> announcements;
 
-    @ManyToMany(mappedBy = "branchOffices")
-    private List<User> users;
+	@OneToMany(mappedBy = "branchOffice", fetch = FetchType.LAZY)
+	private List<UserBranchoffice> userBranchOffices;
+	
+	public BranchOffice() {
+		announcements = new ArrayList<>();
+		userBranchOffices = new ArrayList<>();
+	}
 	
 }

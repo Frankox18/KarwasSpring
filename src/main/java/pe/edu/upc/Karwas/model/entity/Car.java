@@ -1,5 +1,8 @@
 package pe.edu.upc.Karwas.model.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -38,5 +42,10 @@ public class Car {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
+	@OneToMany(mappedBy = "car")
+	private List<ServiceDetail> servicesDetails;
 	
+	public Car() {
+		servicesDetails = new ArrayList<>();
+	}
 }

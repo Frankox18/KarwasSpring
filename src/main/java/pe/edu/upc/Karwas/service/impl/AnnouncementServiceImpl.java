@@ -57,11 +57,4 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 		announcementRepository.deleteAll();
 	}
 
-	@Override
-	@Transactional(readOnly = true)
-	public List<Announcement> findByServicePrice(Integer servicePrice) throws Exception {
-		// TODO Auto-generated method stub
-		return announcementRepository.findByServicePrice(servicePrice);
-	}
-
 }
