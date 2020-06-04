@@ -30,7 +30,7 @@ public class AnnouncementController {
 	@Autowired
 	private BranchOfficeService branchOfficeService;
 	
-	@GetMapping
+	@GetMapping("/start")
 	public String listAll(Model model) {
 		try {
 			List<Announcement> announcements = announcementService.readAll();
