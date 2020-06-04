@@ -39,7 +39,7 @@
 							<p class="lead">Publica aqui tu anuncio y has que muchas
 								personas conozcan tu centro de lavado</p>
 							<div class="card-footer text-center">
-								<a href="" class="btn btn-primary"><i
+								<a th:href="@{karwas/announcement/new}" class="btn btn-primary"><i
 									class="fas fa-plus-circle"></i> Crear Anuncio</a>
 							</div>
 						</div>
@@ -54,16 +54,17 @@
 							<h2 class="display-5">Olvidate de las colas, Reserva aqui</h2>
 							<p class="lead">Con esta programa no deberas esperar mas</p>
 							<div class="card-footer text-center">
-								<a href="" class="btn btn-primary"><i
-									class="fas fa-plus-circle"></i> Reserva tu cita</a>
+								<a th:href="@{karwas/announcement/start}"
+									class="btn btn-primary"><i class="fas fa-plus-circle"></i>
+									Reserva tu cita</a>
 							</div>
 							<div class="bg-dark shadow-sm mx-auto"
 								style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
 						</div>
 
-
 					</div>
 				</div>
+			</div>
 		</section>
 	</main>
 

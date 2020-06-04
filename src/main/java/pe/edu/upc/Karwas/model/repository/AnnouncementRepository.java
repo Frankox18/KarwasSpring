@@ -9,5 +9,5 @@ import pe.edu.upc.Karwas.model.entity.Announcement;
 @Repository
 public interface AnnouncementRepository extends JpaRepository<Announcement, Integer>{
 
-	// List<Announcement> findByServicePrice(  servicePrice ) throws Exception;
+	//List<Announcement> findByServicePrice(  String servicePrice ) throws Exception;
 }

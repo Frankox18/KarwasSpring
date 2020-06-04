@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import pe.edu.upc.Karwas.model.entity.Announcement;
+import pe.edu.upc.Karwas.model.entity.BranchOffice;
 import pe.edu.upc.Karwas.service.AnnouncementService;
+import pe.edu.upc.Karwas.service.BranchOfficeService;
 
 @Controller
 @RequestMapping("karwas/announcement")
@@ -24,6 +26,9 @@ public class AnnouncementController {
 	
 	@Autowired
 	private AnnouncementService announcementService;
+	
+	@Autowired
+	private BranchOfficeService branchOfficeService;
 	
 	@GetMapping
 	public String listAll(Model model) {
@@ -39,6 +44,15 @@ public class AnnouncementController {
 	public String newAnnouncement(Model model) {
 		Announcement announcement = new Announcement();
 		model.addAttribute("announcement", announcement);
+		
+		try {
+			List<BranchOffice> branchOffices = branchOfficeService.readAll();
+			model.addAttribute("branchOffices", branchOffices);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 		return "/announcement/nuevo";
 	}
 	

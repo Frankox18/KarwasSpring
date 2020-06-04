@@ -7,33 +7,29 @@
 	<main role="main">
 		<section class="container">
 			<div class="card text-center"> 
-				<div class="card-header">Detainee</div>
+				<div class="card-header">Announcements</div>
 				<div class="card-body">
 					<table class="table table-borderless table-dark">
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">Dni</th>
-								<th scope="col">Apellidos</th>
-								<th scope="col">Nombres</th>
-								<th scope="col">Fecha Nacimiento</th>
-								<th scope="col">Distrito</th>
+								<th scope="col">Description</th>
+								<th scope="col">Announcement Time</th>
+								<th scope="col">Branch Office</th>
 								<th scope="col"></th>
 						      
 							</tr>
 						</thead>
-						<tbody th:each="detenido: ${detenidos}">
+						<tbody th:each="announcement: ${announcements}">
 							<tr>
-								<th scope="row" th:text="${detenido.id}">1</th>
-								<td th:text = "${detenido.dni}">.</td>
-								<td th:text = "${detenido.apellidos}">.</td>
-								<td th:text = "${detenido.nombres}">.</td>
-								<td th:text = "${detenido.fechaNacimiento}">.</td>
-							    <td th:text = "${detenido.distrito}">.</td>
+								<th scope="row" th:text="${announcement.id}">1</th>
+								<td th:text = "${announcement.description}">.</td>
+								<td th:text = "${announcement.announcementTime}">.</td>
+								<td th:text = "${announcement.branchOffice}">.</td>
 							    <td>
 							      <a href="" class="btn btn-info"> <i class="fas fa-info"></i> </a>
-							      <a th:href="@{'/onewebs/detainee/edit/' + ${detenido.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
-							      <a th:href="@{'/onewebs/detainee/del/' + ${detenido.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
+							      <a th:href="@{'/karwas/announcement/edit/' + ${announcement.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
+							      <a th:href="@{'/karwas/announcement/del/' + ${announcement.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
 							    </td>
 							</tr> 
 							
@@ -41,7 +37,7 @@
 					</table>
 				</div>
 				<div class="card-footer text-center">
-				<a th:href="@{/onewebs/detainee/new}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Nuevo</a>
+				<a th:href="@{/karwas/announcement/new}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> New Announcement</a>
 				</div>
 			</div>
 
