@@ -36,11 +36,11 @@ public class Announcement {
 	@OneToMany(mappedBy = "announcement")
 	private List<Service> service;
 	
-    public Announcement(){
-		service = new ArrayList<>();
-	}
-	
-	@ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "branchOffice_id")
 	private BranchOffice branchOffice;
+	
+    public Announcement(){
+			service = new ArrayList<>();
+		}
 }
