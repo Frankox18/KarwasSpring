@@ -53,7 +53,7 @@ public class AnnouncementController {
 			e.printStackTrace();
 		}
 	
-		return "/announcement/nuevo";
+		return "announcement/nuevo";
 	}
 	
 	@PostMapping("/save")
