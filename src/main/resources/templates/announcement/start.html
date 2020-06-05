@@ -26,7 +26,7 @@
 								<td th:text = "${announcement.description}">.</td>
 
 								<td th:text = "${announcement.announcementDate}">.</td>
-								<td th:text = "${announcement.branchOffice.district}">.</td>
+								<td th:text = "${announcement.branchOffice.district +'-'+ announcement.branchOffice.address }">.</td>
 
 							    <td>
 							      <a href="" class="btn btn-info"> <i class="fas fa-info"></i> </a>

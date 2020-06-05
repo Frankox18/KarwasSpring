@@ -4,7 +4,7 @@
 </head>
 <body>
 	<header th:replace="layout/layout :: header"></header>
-	}
+
 	<main role="main">
 		<section class="jumbotron text-center">
 			<div class="container">
@@ -25,8 +25,8 @@
 							recibir el servicio. Ademas de encontrar el centro de lavado que
 							mejor le parezca al usuario. Ello le permitira ahorrar tiempo en
 							el proceso de limpieza del automovil.</p>
-						<a th:href="@{karwas/user/login}" class="btn btn-primary"><i
-									class="fas fa-plus-circle"></i> Inicia Sesion</a>
+						<a th:href="@{karwas/person/new}" class="btn btn-primary"><i
+							class="fas fa-plus-circle"></i> Inicia Sesion</a>
 					</div>
 					<div class="product-device shadow-sm d-none d-md-block"></div>
 					<div
@@ -56,15 +56,25 @@
 							<p class="lead">Con esta programa no deberas esperar mas</p>
 							<div class="card-footer text-center">
 								<a th:href="@{karwas/announcement/start}"
-									class="btn btn-primary"><i class="fas fa-plus-circle"></i>
+									class="btn btn-primary"><i class="fas fa-smile"></i>
 									Reserva tu cita</a>
 							</div>
-							<div class="bg-dark shadow-sm mx-auto"
-								style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+							<img
+								src="https://media.gettyimages.com/vectors/guy-washing-car-brands-battle-vector-id156891494?s=612x612"
+								width="300" height="300">
+
 						</div>
 
 					</div>
+
+
 				</div>
+
+				<img
+					src="https://resizer.iproimg.com/unsafe/880x/https://assets.iprofesional.com/assets/jpg/2018/10/468256.jpg?5.6.0.5">
+
+				<img
+					src="https://nattivos.com/wp-content/uploads/2019/05/lavado-1-e1557872881856.jpg" width="870" height ="500">
 			</div>
 		</section>
 	</main>
