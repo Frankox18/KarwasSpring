@@ -7,37 +7,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.edu.upc.Karwas.model.entity.ServiceDetail;
-import pe.edu.upc.Karwas.model.repository.ServiceDetailRepository;
-import pe.edu.upc.Karwas.service.ServiceDetailService;
+import pe.edu.upc.Karwas.model.entity.WashedDetail;
+import pe.edu.upc.Karwas.model.repository.WashedDetailRepository;
+import pe.edu.upc.Karwas.service.WashedDetailService;
 
 @Service
-public class ServiceDetailServiceImpl implements ServiceDetailService {
+public class WashedDetailServiceImpl implements WashedDetailService {
 
 	@Autowired
-	private ServiceDetailRepository serviceDetailRepository; 
+	private WashedDetailRepository serviceDetailRepository; 
 	
 	@Override
 	@Transactional
-	public ServiceDetail create(ServiceDetail entity) throws Exception {
+	public WashedDetail create(WashedDetail entity) throws Exception {
 		return serviceDetailRepository.save(entity);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<ServiceDetail> readAll() throws Exception {
+	public List<WashedDetail> readAll() throws Exception {
 		return serviceDetailRepository.findAll();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<ServiceDetail> findById(Integer id) throws Exception {
+	public Optional<WashedDetail> findById(Integer id) throws Exception {
 		return serviceDetailRepository.findById(id);
 	}
 
 	@Override
 	@Transactional
-	public ServiceDetail update(ServiceDetail entity) throws Exception {
+	public WashedDetail update(WashedDetail entity) throws Exception {
 		return serviceDetailRepository.save(entity);
 	}
 

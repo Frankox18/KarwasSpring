@@ -1,5 +1,5 @@
 package pe.edu.upc.Karwas.service.impl;
 
-public class TypeServiceServiceImpl {
+public class TypeWashedServiceImpl {
 
 }

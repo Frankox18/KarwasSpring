@@ -40,7 +40,7 @@ public class Announcement {
 	private Date announcementDate;
 	
 	@OneToMany(mappedBy = "announcement")
-	private List<Service> service;
+	private List<Washed> service;
 	
     @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "branchOffice_id")

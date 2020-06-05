@@ -28,7 +28,7 @@ public class Payment {
     private String method;
 	
 	@OneToMany(mappedBy = "payment")
-	private List<ServiceDetail> servicesDetails;
+	private List<WashedDetail> servicesDetails;
 	
 	public Payment() {
 		servicesDetails = new ArrayList<>();
