@@ -34,10 +34,10 @@ public class Announcement {
 	@Column(name = "description", length = 30, nullable = false)
 	private String description;
 	
-	@Column(name = "announcementTime", length = 30, nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "announcementDate", length = 30, nullable = false)
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date announcementTime;
+	private Date announcementDate;
 	
 	@OneToMany(mappedBy = "announcement")
 	private List<Service> service;
