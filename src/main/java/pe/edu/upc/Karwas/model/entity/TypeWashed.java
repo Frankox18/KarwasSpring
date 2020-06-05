@@ -15,10 +15,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "typeservices")
+@Table(name = "type_washeds")
 @Getter
 @Setter
-public class TypeService {
+public class TypeWashed {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -26,10 +26,10 @@ public class TypeService {
 	@Column(name = "serviceName", length = 30, nullable = false)
     private String serviceName;
 	
-	@OneToMany(mappedBy = "typeService")
-	private List<ServiceDetail> servicesDetails;
+	@OneToMany(mappedBy = "typeWashed")
+	private List<Washed> washeds;
 	
-	public TypeService() {
-		servicesDetails = new ArrayList<>();
+	public TypeWashed() {
+		washeds = new ArrayList<>();
 	}
 }

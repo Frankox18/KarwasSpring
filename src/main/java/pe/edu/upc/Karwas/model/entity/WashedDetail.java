@@ -14,22 +14,18 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "services_details")
+@Table(name = "washed_details")
 @Getter
 @Setter
-public class ServiceDetail {
+public class WashedDetail {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "service_id")
-	private Service service;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "type_service_id")
-	private TypeService typeService;
+	@JoinColumn(name = "washed_id")
+	private Washed washed;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "car_id")

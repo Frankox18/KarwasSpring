@@ -43,9 +43,9 @@ public class Car {
 	private User user;
 	
 	@OneToMany(mappedBy = "car")
-	private List<ServiceDetail> servicesDetails;
+	private List<WashedDetail> washedsDetails;
 	
 	public Car() {
-		servicesDetails = new ArrayList<>();
+		washedsDetails = new ArrayList<>();
 	}
 }
