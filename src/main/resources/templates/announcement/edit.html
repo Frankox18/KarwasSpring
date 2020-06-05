@@ -7,41 +7,41 @@
 	<main role="main">
 		<section class="container">
 			<div class="card text-center">
-				<div class="card-header">Edit Detainee</div>
+				<div class="card-header">Edit Announcement</div>
 				<div class="card-body text-left">
 
-					<form th:action="@{/onewebs/detainee/save}" th:object="${detenido}" method="post">
+					<form th:action="@{/karwas/announcement/save}"
+						th:object="${announcement}" method="post">
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="dni">Dni</label> <input type="text"
-									class="form-control" th:field="*{dni}" placeholder="12345678">
+								<label for="description">Description</label> <input type="text"
+									class="form-control" th:field="*{description}"
+									placeholder="Ingrese una descripcion">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="apellidos">Apellidos</label> <input type="text"
-									class="form-control" th:field="*{apellidos}"
-									placeholder="Ingrese el Apellido paterno y materno">
-							</div>
-							<div class="form-group col-md-6">
-								<label for="nombres">Nombres</label> <input type="text"
-									class="form-control" th:field="*{nombres}"
-									placeholder="Ingrese el nombre">
+								<label for="announcementDate">Announcement Date</label> <input
+									type="date" class="form-control" th:field="*{announcementDate}"
+									placeholder="Ingrese la fecha de reserva">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="fechaNacimiento">Fecha Nacimiento</label> <input type="text"
-									class="form-control" th:field="*{fechaNacimiento}" placeholder="Ingrese la fecha de nacimiento">
-							</div>
-							<div class="form-group col-md-2">
-								<label for="distrito">Distrito</label> <input type="text"
-									class="form-control"  th:field="*{distrito}" placeholder= "Ingrese el distrito">
+								<label for="branchOffice">Branch Office</label> 
+								<select th:field="*{branchOffice}" class="form-control">
+									<option th:each="branchOffice : ${branchOffices}"
+										th:value="${branchOffice.id}"
+										th:text="${branchOffice.district + ' - ' + branchOffice.address}">
+									</option>
+								</select>
 							</div>
 						</div>
-					
-						<button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Grabar</button>
-						<a th:href="@{/onewebs/detainee}" class="btn btn-danger"> Cancelar</a>
+						<button type="submit" class="btn btn-success">
+							<i class="fas fa-save"></i> Grabar
+						</button>
+						<a th:href="@{/karwas/announcement/start}" class="btn btn-danger">
+							Cancelar</a>
 					</form>
 				</div>
 				<div class="card-footer text-center"></div>

@@ -64,7 +64,7 @@ public class AnnouncementController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/karwas/announcement";
+		return "redirect:/karwas/announcement/start";
 	}
 	
 	@GetMapping("/edit/{id}")
@@ -72,9 +72,11 @@ public class AnnouncementController {
 		try {
 			Optional<Announcement> optional = announcementService.findById(id);
 			if(optional.isPresent()) {
-				model.addAttribute("announcement", optional.get());				
+				model.addAttribute("announcement", optional.get());	
+				List<BranchOffice> branchOffices = branchOfficeService.readAll();
+				model.addAttribute("branchOffices", branchOffices);
 			} else {
-				return "redirect:/karwas/announcement";
+				return "redirect:/karwas/announcement/start";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,11 +91,11 @@ public class AnnouncementController {
 			if (optional.isPresent()) {
 				announcementService.deleteById(id);
 			} else {
-				return "redirect:/karwas/announcement";
+				return "redirect:/karwas/announcement/start";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/karwas/announcement";
+		return "redirect:/karwas/announcement/start";
 	}	
 }
