@@ -7,7 +7,7 @@
 	<main role="main">
 		<section class="container">
 			<div class="card text-center">
-				<div class="card-header">New User</div>
+				<div class="card-header">Edit User</div>
 				<div class="card-body text-left">
 
 					<form th:action="@{/karwas/user/save}"
@@ -21,7 +21,7 @@
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="password">Password</label> <input type="password"
+								<label for="password">Password</label> <input type="text"
 									class="form-control" th:field="*{password}"
 									placeholder="Ingrese una contraseña">
 							</div>
@@ -30,7 +30,6 @@
 							<div class="form-group col-md-6">
 								<label for="role">Role</label> <select
 									th:field="*{role}" class="form-control">
-									<option value="">Seleccione Rol</option>
 									<option th:each="role : ${roles}"
 										th:value="${role.id}"
 										th:text="${role.nameRole}">
@@ -78,7 +77,7 @@
 						<button type="submit" class="btn btn-success">
 							<i class="fas fa-save"></i> Grabar
 						</button>
-						<a th:href="@{/karwas/}" class="btn btn-danger">
+						<a th:href="@{/karwas/user/start}" class="btn btn-danger">
 							Cancelar</a>
 					</form>
 				</div>
