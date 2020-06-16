@@ -49,7 +49,7 @@ public class UserController {
 	@GetMapping("/new")
 	public String newUser(Model model) {
 		User user = new User();
-		model.addAttribute("user", user);
+		model.addAttribute("user", user);	
 		try {
 			List<Person> persons = personService.readAll();
 			model.addAttribute("persons", persons);
