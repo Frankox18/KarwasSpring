@@ -27,7 +27,7 @@ public class Car {
 	private Integer id;
 	
 	@Column(name = "license", length = 6, nullable = false)
-	private Long license;
+	private String license;
 	
 	@Column(name = "brand", length = 30, nullable = false)
 	private String brand;
