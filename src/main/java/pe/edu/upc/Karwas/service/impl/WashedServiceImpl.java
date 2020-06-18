@@ -52,10 +52,4 @@ public class WashedServiceImpl implements WashedService {
 	public void deleteByAll() throws Exception {
 		washedRepository.deleteAll();
 	}
-
-	@Override
-	@Transactional(readOnly = true)
-	public List<Washed> findByWashStartTime(int washStartTime) throws Exception {
-		return washedRepository.findByWashStartTime(washStartTime);
-	}
 }
