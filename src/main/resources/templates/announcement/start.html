@@ -13,6 +13,7 @@
 						<thead>
 							<tr>
 								<th scope="col">#</th>
+								<th scope="col">Title</th>
 								<th scope="col">Description</th>
 								<th scope="col">Announcement Date</th>
 								<th scope="col">Branch Office</th>
@@ -23,6 +24,7 @@
 						<tbody th:each="announcement: ${announcements}">
 							<tr>
 								<th scope="row" th:text="${announcement.id}">1</th>
+								<td th:text = "${announcement.title}">.</td>
 								<td th:text = "${announcement.description}">.</td>
 								<td th:text = "${announcement.announcementDate}">.</td>
 								<td th:text = "${announcement.branchOffice.district +'-'+ announcement.branchOffice.address }">.</td>

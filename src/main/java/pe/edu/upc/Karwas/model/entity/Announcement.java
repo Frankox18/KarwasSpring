@@ -31,10 +31,13 @@ public class Announcement {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "description", length = 30, nullable = false)
+	@Column(name = "tittle", length = 30, nullable = false)
+	private String title;
+	
+	@Column(name = "description", length = 500, nullable = false)
 	private String description;
 	
-	@Column(name = "announcementDate", length = 30, nullable = false)
+	@Column(name = "announcement_date", length = 30, nullable = false)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date announcementDate;

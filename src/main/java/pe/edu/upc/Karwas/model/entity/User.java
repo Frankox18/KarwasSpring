@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,15 +27,16 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "email", length = 30, nullable = false)
-    private String email;
+	@Column(name = "user_name", length = 30, nullable = false)
+    private String username;
 	
 	@Column(name = "password", length = 30, nullable = false)
     private String password;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "role_id")
-	private Role role;
+	private boolean enable;
+	
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Role> roles;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "person_id")

@@ -27,10 +27,10 @@ public class BranchOffice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-	@Column(name = "distrito", length = 30, nullable = false)
+	@Column(name = "district", length = 15, nullable = false)
     private String district;
     
-	@Column(name = "direccion", length = 30, nullable = false)
+	@Column(name = "address", length = 30, nullable = false)
     private String address;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

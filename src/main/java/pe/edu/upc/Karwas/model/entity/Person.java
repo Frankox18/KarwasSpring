@@ -31,7 +31,7 @@ public class Person {
 	private String dni;
 	
 	@Column(name = "numberPhone", length = 9, nullable = false)
-	private Integer numberPhone;
+	private Long numberPhone;
 	
 	@Column(name="district", length=20, nullable=false)
 	private String district;

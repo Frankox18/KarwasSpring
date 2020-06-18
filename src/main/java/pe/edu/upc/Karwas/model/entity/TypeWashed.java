@@ -23,7 +23,7 @@ public class TypeWashed {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "serviceName", length = 30, nullable = false)
+	@Column(name = "service_name", length = 30, nullable = false)
     private String serviceName;
 	
 	@OneToMany(mappedBy = "typeWashed")

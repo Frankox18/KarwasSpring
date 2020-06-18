@@ -34,9 +34,6 @@ public class UserBranchoffice {
 	@Column(name = "work_shift", length = 40, nullable = false)
 	private String workShift;
 	
-	@Column(name = "work_hour", length = 2 ,nullable = false)
-	private int workHour;
-	
 	@Column(name = "start_hour",length = 2,nullable = false)
 	private int startHour;
 	

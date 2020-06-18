@@ -33,15 +33,12 @@ public class Washed {
 	private TypeWashed typeWashed;
 
 	@Column(name="description", length = 40, nullable = false)
-	private int description	;
+	private String description;
 	
-	@Column(name="washStartTime", length = 40, nullable = false)
-	private int washStartTime;
+	@Column(name="wash_time", length = 10, nullable = false)
+	private int wash_Time;
 	
-	@Column(name="endTimeWashing", length = 40, nullable = false)
-	private int endTimeWashing;
-	
-	@Column(name="totalAmount", length = 40, nullable = false)
+	@Column(name="total_amount", length = 40, nullable = false)
 	private int totalAmount;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -49,7 +46,7 @@ public class Washed {
 	private Announcement announcement;
 	
 	@OneToMany(mappedBy = "washed")
-	private List<WashedDetail> washedsDetails;
+	private List<Registry> washedsDetails;
 	
 	public Washed() {
 		washedsDetails = new ArrayList<>();

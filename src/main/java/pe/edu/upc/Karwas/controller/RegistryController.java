@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@RequestMapping("karwas/servicedetail")
-@SessionAttributes("servicedetail")
-public class WashedDetailController {
+@RequestMapping("karwas/registry")
+@SessionAttributes("registry")
+public class RegistryController {
 
 }

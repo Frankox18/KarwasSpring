@@ -28,7 +28,7 @@ public class Company {
 	@Column(name = "name", length = 30, nullable = false)
     private String name;
     
-	@Column(name = "ruc", length = 30, nullable = false)
+	@Column(name = "ruc", length = 11, nullable = false)
     private Long ruc;
    
 	@OneToMany(mappedBy = "company", fetch = FetchType.LAZY)

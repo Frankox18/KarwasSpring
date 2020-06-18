@@ -14,10 +14,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "washed_details")
+@Table(name = "records")
 @Getter
 @Setter
-public class WashedDetail {
+public class Registry {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

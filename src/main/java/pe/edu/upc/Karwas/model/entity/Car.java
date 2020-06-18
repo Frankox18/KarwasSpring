@@ -26,8 +26,8 @@ public class Car {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "license", length = 30, nullable = false)
-	private Integer license;
+	@Column(name = "license", length = 6, nullable = false)
+	private Long license;
 	
 	@Column(name = "brand", length = 30, nullable = false)
 	private String brand;
@@ -35,15 +35,15 @@ public class Car {
 	@Column(name = "model", length = 30, nullable = false)
 	private String model;
 	
-	@Column(name = "carType", length = 30, nullable = false)
-	private String carType;
+	@Column(name = "color", length = 15, nullable = false)
+	private String color;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
 	
 	@OneToMany(mappedBy = "car")
-	private List<WashedDetail> washedsDetails;
+	private List<Registry> washedsDetails;
 	
 	public Car() {
 		washedsDetails = new ArrayList<>();

@@ -7,37 +7,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.edu.upc.Karwas.model.entity.WashedDetail;
-import pe.edu.upc.Karwas.model.repository.WashedDetailRepository;
-import pe.edu.upc.Karwas.service.WashedDetailService;
+import pe.edu.upc.Karwas.model.entity.Registry;
+import pe.edu.upc.Karwas.model.repository.RegistryRepository;
+import pe.edu.upc.Karwas.service.RegistryService;
 
 @Service
-public class WashedDetailServiceImpl implements WashedDetailService {
+public class RegistryServiceImpl implements RegistryService {
 
 	@Autowired
-	private WashedDetailRepository serviceDetailRepository; 
+	private RegistryRepository serviceDetailRepository; 
 	
 	@Override
 	@Transactional
-	public WashedDetail create(WashedDetail entity) throws Exception {
+	public Registry create(Registry entity) throws Exception {
 		return serviceDetailRepository.save(entity);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<WashedDetail> readAll() throws Exception {
+	public List<Registry> readAll() throws Exception {
 		return serviceDetailRepository.findAll();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<WashedDetail> findById(Integer id) throws Exception {
+	public Optional<Registry> findById(Integer id) throws Exception {
 		return serviceDetailRepository.findById(id);
 	}
 
 	@Override
 	@Transactional
-	public WashedDetail update(WashedDetail entity) throws Exception {
+	public Registry update(Registry entity) throws Exception {
 		return serviceDetailRepository.save(entity);
 	}
 
