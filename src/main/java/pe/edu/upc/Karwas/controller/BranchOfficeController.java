@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import pe.edu.upc.Karwas.model.entity.BranchOffice;
+import pe.edu.upc.Karwas.model.entity.Company;
 import pe.edu.upc.Karwas.service.BranchOfficeService;
+import pe.edu.upc.Karwas.service.CompanyService;
+
 
 @Controller
 @RequestMapping("karwas/branchoffice")
@@ -25,6 +28,9 @@ public class BranchOfficeController {
 	@Autowired
 	private BranchOfficeService branchOfficeService;
 	
+	@Autowired
+	private CompanyService companyService;
+
 	@GetMapping("/start")
 	public String listAll(Model model) {
 		try {
@@ -38,13 +44,19 @@ public class BranchOfficeController {
 	@GetMapping("/new")
 	public String newBranchOffice(Model model) {
 		BranchOffice branchoffice = new BranchOffice();
-		model.addAttribute("branchoffice",branchoffice);
-
-		return "/branchoffice/nuevo";
+		model.addAttribute("branchoffice", branchoffice);
+		try {
+			List<Company> companys = companyService.readAll();
+			model.addAttribute("companys", companys);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "/branchoffice/login";
 	}
-	
+
 	@PostMapping("/save")
-	public String saveBranchOffice(@ModelAttribute("branchoffice") BranchOffice branchoffice, Model model, SessionStatus status) {
+	public String saveBranchOffice(@ModelAttribute("branchoffice") BranchOffice branchoffice, Model model,
+			SessionStatus status) {
 		try {
 			branchOfficeService.create(branchoffice);
 			status.setComplete();
@@ -53,13 +65,13 @@ public class BranchOfficeController {
 		}
 		return "redirect:/karwas/branchoffice";
 	}
-	
+
 	@GetMapping("/edit/{id}")
 	public String editBranchOffice(@PathVariable("id") Integer id, Model model) {
 		try {
 			Optional<BranchOffice> optional = branchOfficeService.findById(id);
-			if(optional.isPresent()) {
-				model.addAttribute("branchoffice", optional.get());				
+			if (optional.isPresent()) {
+				model.addAttribute("branchoffice", optional.get());
 			} else {
 				return "redirect:/karwas/branchoffice";
 			}
@@ -68,9 +80,9 @@ public class BranchOfficeController {
 		}
 		return "/branchoffice/edit";
 	}
-	
+
 	@GetMapping("/del/{id}")
-	public String delBranchOffice(@PathVariable("id") Integer id,  Model model) {
+	public String delBranchOffice(@PathVariable("id") Integer id, Model model) {
 		try {
 			Optional<BranchOffice> optional = branchOfficeService.findById(id);
 			if (optional.isPresent()) {
@@ -82,5 +94,5 @@ public class BranchOfficeController {
 			e.printStackTrace();
 		}
 		return "redirect:/karwas/branchoffice";
-	}	
+	}
 }
