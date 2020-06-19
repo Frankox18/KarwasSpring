@@ -13,12 +13,12 @@
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">Email</th>
+								<th scope="col">Username</th>
 								<th scope="col">Password</th>
 								<th scope="col">Dni</th>
 								<th scope="col">Last Name</th>
 								<th scope="col">Name</th>
-								<th scope="col">Role</th>
+								<th scope="col">Number phone</th>
 								<th scope="col"></th>
 						      
 							</tr>
@@ -26,12 +26,12 @@
 						<tbody th:each="user: ${users}">
 							<tr>
 								<th scope="row" th:text="${user.id}">1</th>
-								<td th:text = "${user.email}">.</td>
+								<td th:text = "${user.username}">.</td>
 								<td th:text = "${user.password}">.</td>
 								<td th:text = "${user.person.dni}">.</td>
 								<td th:text = "${user.person.lastName}">.</td>
 								<td th:text = "${user.person.name}">.</td>
-								<td th:text = "${user.role.nameRole}">.</td>
+								<td th:text = "${user.person.numberPhone}">.</td>
 
 							    <td>
 							      <a href="" class="btn btn-info"> <i class="fas fa-info"></i> </a>
