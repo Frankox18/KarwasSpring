@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<main role="main">
+		<section class="container">
+			<div class="card text-center"> 
+				<div class="card-header">Announcements</div>
+				<div class="card-body">
+					<table class="table table-borderless table-dark">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Title</th>
+								<th scope="col">Description</th>
+								<th scope="col">Announcement Date</th>
+								<th scope="col">Branch Office</th>
+								<th scope="col"></th>
+						      
+							</tr>
+						</thead>
+						<tbody th:each="announcement: ${announcements}">
+							<tr>
+								<th scope="row" th:text="${announcement.id}">1</th>
+								<td th:text = "${announcement.title}">.</td>
+								<td th:text = "${announcement.description}">.</td>
+								<td th:text = "${announcement.announcementDate}">.</td>
+								<td th:text = "${announcement.branchOffice.district +'-'+ announcement.branchOffice.address }">.</td>
+
+							    <td>
+							      <a href="" class="btn btn-info"> <i class="fas fa-info"></i> </a>
+							      <a th:href="@{'/karwas/announcement/edit/' + ${announcement.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
+							      <a th:href="@{'/karwas/announcement/del/' + ${announcement.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
+							    </td>
+							</tr> 
+							
+						</tbody>
+					</table>
+				</div>
+				<div class="card-footer text-center">
+				<a th:href="@{/karwas/announcement/new}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> New Announcement</a>
+				</div>
+			</div>
+
+		</section>
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package pe.edu.upc.Karwas.entity;
+package pe.edu.upc.Karwas.model.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,46 +10,42 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "sucursales")
+@Table(name = "branchOffices")
 @Getter
 @Setter
-public class Branchoffice {
-    
+public class BranchOffice {
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-	@NotBlank(message = "District is required")
-	@Column(name = "district", length = 30, nullable = false)
+	@Column(name = "district", length = 15, nullable = false)
     private String district;
     
-	@NotBlank(message = "Direction is required")
-	@Column(name = "direction", length = 30, nullable = false)
-    private String direction;
+	@Column(name = "address", length = 30, nullable = false)
+    private String address;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "company_id")
 	private Company company;
 
-	@OneToMany(mappedBy="branchoffice", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="branchOffice", fetch = FetchType.LAZY)
     private List<Announcement> announcements;
 
-    @ManyToMany(mappedBy = "branchoffices")
-    private List<Employee> employees;
-    
-    public Branchoffice() {
-    	announcements = new ArrayList<>();
-    	employees = new ArrayList<>();
-    }
-
+	@OneToMany(mappedBy = "branchOffice", fetch = FetchType.LAZY)
+	private List<UserBranchoffice> userBranchOffices;
+	
+	public BranchOffice() {
+		announcements = new ArrayList<>();
+		userBranchOffices = new ArrayList<>();
+	}
+	
 }

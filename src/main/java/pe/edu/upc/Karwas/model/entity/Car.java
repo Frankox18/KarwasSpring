@@ -1,4 +1,7 @@
-package pe.edu.upc.Karwas.entity;
+package pe.edu.upc.Karwas.model.entity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,46 +11,41 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.Setter;
-import pe.edu.upc.Karwas.entity.Client;
 
 @Entity
 @Table(name = "cars")
 @Getter
 @Setter
 public class Car {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotBlank(message = "License is required")
-	@Column(name = "license", length = 30, nullable = false)
-	private Integer license;
+	@Column(name = "license", length = 6, nullable = false)
+	private Long license;
 	
-	@NotBlank(message = "Brand is required")
 	@Column(name = "brand", length = 30, nullable = false)
 	private String brand;
 	
-	@NotBlank(message = "Model is required")
 	@Column(name = "model", length = 30, nullable = false)
 	private String model;
 	
-	@NotBlank(message = "Car type is required")
-	@Column(name = "cartype", length = 30, nullable = false)
-	private String cartype;
+	@Column(name = "color", length = 15, nullable = false)
+	private String color;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "client_id")
-	private Client client;
+	@JoinColumn(name = "user_id")
+	private User user;
 	
-	@OneToOne(mappedBy = "car")
-	private Washed washed; 
-
+	@OneToMany(mappedBy = "car")
+	private List<Registry> washedsDetails;
 	
+	public Car() {
+		washedsDetails = new ArrayList<>();
+	}
 }

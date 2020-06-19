@@ -1,0 +1,13 @@
+package pe.edu.upc.Karwas.service;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface CrudService<T, ID> {
+	T create(T entity) throws Exception;
+	List<T> readAll() throws Exception;
+	Optional<T> findById(ID id) throws Exception;
+	T update(T entity) throws Exception;
+	void deleteById(ID id) throws Exception;
+	void deleteByAll() throws Exception;
+}
