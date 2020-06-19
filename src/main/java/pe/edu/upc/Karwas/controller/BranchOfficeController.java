@@ -72,6 +72,8 @@ public class BranchOfficeController {
 			Optional<BranchOffice> optional = branchOfficeService.findById(id);
 			if (optional.isPresent()) {
 				model.addAttribute("branchoffice", optional.get());
+				List<Company> companys = companyService.readAll();
+				model.addAttribute("companys", companys);
 			} else {
 				return "redirect:/karwas/branchoffice/start";
 			}

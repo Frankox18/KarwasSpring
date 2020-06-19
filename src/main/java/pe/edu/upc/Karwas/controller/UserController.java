@@ -15,10 +15,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import pe.edu.upc.Karwas.model.entity.Person;
-import pe.edu.upc.Karwas.model.entity.Role;
 import pe.edu.upc.Karwas.model.entity.User;
 import pe.edu.upc.Karwas.service.PersonService;
-import pe.edu.upc.Karwas.service.RoleService;
 import pe.edu.upc.Karwas.service.UserService;
 
 @Controller
@@ -28,9 +26,6 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
-
-	@Autowired
-	private RoleService roleService;
 	
 	@Autowired
 	private PersonService personService;
@@ -53,8 +48,6 @@ public class UserController {
 		try {
 			List<Person> persons = personService.readAll();
 			model.addAttribute("persons", persons);
-			List<Role> roles = roleService.readAll();
-			model.addAttribute("roles", roles);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -80,8 +73,6 @@ public class UserController {
 				model.addAttribute("user", optional.get());
 				List<Person> persons = personService.readAll();
 				model.addAttribute("persons", persons);
-				List<Role> roles = roleService.readAll();
-				model.addAttribute("roles", roles);
 			} else {
 				return "redirect:/karwas/user/start";
 			}

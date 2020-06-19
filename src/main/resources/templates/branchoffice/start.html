@@ -15,21 +15,23 @@
 								<th scope="col">#</th>
 								<th scope="col">Name</th>
 								<th scope="col">RUC</th>
+								<th scope="col">District</th>
+								<th scope="col">Address</th>
 								<th scope="col"></th>
 						      
 							</tr>
 						</thead>
-						<tbody th:each="company: ${companys}">
+						<tbody th:each="branchoffice: ${branchoffices}">
 							<tr>
-								<th scope="row" th:text="${company.id}">1</th>
-								<td th:text = "${company.name}">.</td>
-								<td th:text = "${company.ruc}">.</td>
-						
-
+								<th scope="row" th:text="${branchoffice.id}">1</th>
+								<td th:text = "${branchoffice.company.name}">.</td>
+								<td th:text = "${branchoffice.company.ruc}">.</td>
+							    <td th:text = "${branchoffice.district}">.</td>
+								<td th:text = "${branchoffice.address}">.</td>
 							    <td>
 							      <a href="" class="btn btn-info"> <i class="fas fa-info"></i> </a>
-							      <a th:href="@{'/karwas/company/edit/' + ${company.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
-							      <a th:href="@{'/karwas/company/del/' + ${company.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
+							      <a th:href="@{'/karwas/branchoffice/edit/' + ${branchoffice.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
+							      <a th:href="@{'/karwas/branchoffices/del/' + ${branchoffice.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
 							    </td>
 							</tr> 
 							
@@ -37,7 +39,7 @@
 					</table>
 				</div>
 				<div class="card-footer text-center">
-				<a th:href="@{/karwas/company/new}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> New Company</a>
+				<a th:href="@{/karwas/branchoffice/new}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> New Company</a>
 				</div>
 			</div>
 
