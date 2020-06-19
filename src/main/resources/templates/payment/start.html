@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<main role="main">
+		<section class="container">
+			<div class="card text-center"> 
+				<div class="card-header">Payments</div>
+				<div class="card-body">
+					<table class="table table-borderless table-dark">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Number card</th>
+								<th scope="col">CVV</th>
+								<th scope="col">Date Exp</th>
+								<th scope="col">Method</th>
+								<th scope="col"></th>
+						      
+							</tr>
+						</thead>
+						<tbody th:each="payment: ${payments}">
+							<tr>
+								<th scope="row" th:text="${payment.id}">1</th>
+								<td th:text = "${payment.numberCard}">.</td>
+								<td th:text = "${payment.cvv}">.</td>
+								<td th:text = "${payment.dateExp}">.</td>
+								<td th:text = "${payment.method}">.</td>
+
+							    <td>
+							      <a href="" class="btn btn-info"> <i class="fas fa-info"></i> </a>
+							      <a th:href="@{'/karwas/payment/edit/' + ${payment.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
+							      <a th:href="@{'/karwas/payment/del/' + ${payment.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
+							    </td>
+							</tr> 
+							
+						</tbody>
+					</table>
+				</div>
+				<div class="card-footer text-center">
+				<a th:href="@{/karwas/payment/new}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> New Payment</a>
+				</div>
+			</div>
+
+		</section>
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
