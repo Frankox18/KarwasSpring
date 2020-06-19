@@ -28,7 +28,9 @@
 							<div class="form-group col-md-6">
 								<label for="numberCard">Number card</label> <input type="text"
 									class="form-control" th:field="*{numberCard}"
-									placeholder="Ingrese una tarjeta">
+									placeholder="Ingrese una tarjeta" id="choose" name="i_like" 
+									required minlength="16" maxlength="16"  pattern="[0-9]{16}" 
+									title="Ingresar 16 digitos n&uacute;mericos de tarjeta">
 							</div>
 						</div>
 
