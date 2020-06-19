@@ -87,11 +87,11 @@ public class PaymentController {
 			if (optional.isPresent()) {
 				paymentService.deleteById(id);
 			} else {
-				return "redirect:/karwas/Payment/start";
+				return "redirect:/karwas/payment/start";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/karwas/Payment/start";
+		return "redirect:/karwas/payment/start";
 	}	
 }

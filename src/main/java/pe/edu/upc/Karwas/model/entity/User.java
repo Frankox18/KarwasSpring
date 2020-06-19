@@ -49,8 +49,24 @@ public class User {
 	private List<UserBranchoffice> userBranchoffices;
 	
 	public User() {
+		this.enable = true;
+		roles = new ArrayList<>();
 		car = new ArrayList<>();
 		userBranchoffices = new ArrayList<>();
 	}
 	
+	public User(String username, String password) {
+		this.username = username;
+		this.password = password;
+		this.enable = true;
+		roles = new ArrayList<>();
+		car = new ArrayList<>();
+		userBranchoffices = new ArrayList<>();
+	}
+	
+	public void addRoles(String rol) {
+		Role role = new Role();
+		role.setNameRole(rol);
+		role.setUser(this);
+	}
 }
