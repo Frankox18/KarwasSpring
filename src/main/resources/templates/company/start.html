@@ -7,36 +7,29 @@
 	<main role="main">
 		<section class="container">
 			<div class="card text-center"> 
-				<div class="card-header">People</div>
+				<div class="card-header">Companys</div>
 				<div class="card-body">
 					<table class="table table-borderless table-dark">
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">Address</th>
-								<th scope="col">District</th>
-								<th scope="col">Dni</th>
-								<th scope="col">Last Name</th>
 								<th scope="col">Name</th>
-								<th scope="col">Number Phone</th>
+								<th scope="col">RUC</th>
 								<th scope="col"></th>
 						      
 							</tr>
 						</thead>
-						<tbody th:each="person: ${persons}">
+						<tbody th:each="company: ${companys}">
 							<tr>
-								<th scope="row" th:text="${person.id}">1</th>
-								<td th:text = "${person.address}">.</td>
-								<td th:text = "${person.district}">.</td>
-								<td th:text = "${person.dni}">.</td>
-								<td th:text = "${person.lastName}">.</td>
-								<td th:text = "${person.name}">.</td>
-								<td th:text = "${person.numberPhone}">.</td>
+								<th scope="row" th:text="${company.id}">1</th>
+								<td th:text = "${company.name}">.</td>
+								<td th:text = "${company.ruc}">.</td>
+						
 
 							    <td>
 							      <a href="" class="btn btn-info"> <i class="fas fa-info"></i> </a>
-							      <a th:href="@{'/karwas/person/edit/' + ${person.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
-							      <a th:href="@{'/karwas/person/del/' + ${person.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
+							      <a th:href="@{'/karwas/company/edit/' + ${company.id}}" class="btn btn-warning"> <i class="fas fa-edit"></i> </a>
+							      <a th:href="@{'/karwas/company/del/' + ${company.id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
 							    </td>
 							</tr> 
 							
@@ -44,7 +37,7 @@
 					</table>
 				</div>
 				<div class="card-footer text-center">
-				<a th:href="@{/karwas/person/new}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> New Person</a>
+				<a th:href="@{/karwas/company/new}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> New Company</a>
 				</div>
 			</div>
 

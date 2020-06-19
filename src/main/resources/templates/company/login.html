@@ -7,48 +7,28 @@
 	<main role="main">
 		<section class="container">
 			<div class="card text-center">
-				<div class="card-header">New Person</div>
+				<div class="card-header">New Company</div>
 				<div class="card-body text-left">
 
-					<form th:action="@{/karwas/person/save}"
-						th:object="${person}" method="post">
+					<form th:action="@{/karwas/company/save}"
+						th:object="${company}" method="post">
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="address">Address</label> <input type="text"
-									class="form-control" th:field="*{address}"
-									placeholder="Ingrese una direccion">
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-
-								<label for="district">District</label> <input
-									type="text" class="form-control" th:field="*{district}"
-									placeholder="Ingrese el distrito">
-
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="dni">Dni</label> <input type="text"
-									class="form-control" th:field="*{dni}"
-									placeholder="Ingrese un dni">
-							</div>
-							<div class="form-group col-md-6">
-								<label for="lastName">Last name</label> <input type="text"
-									class="form-control" th:field="*{lastName}"
-									placeholder="Ingrese su apellido">
-							</div>
-							<div class="form-group col-md-6">
-								<label for="name">name</label> <input type="text"
+								<label for="name">Name</label> <input type="text"
 									class="form-control" th:field="*{name}"
-									placeholder="Ingrese su nombre">
-									
-								<label for="numberPhone">Number phone</label><input type="text"
-									class="form-control" th:field="*{numberPhone}"
-									placeholder="Ingrese su numero de celular">
+									placeholder="Ingrese un nombre">
 							</div>
 						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+
+								<label for="ruc">Ruc</label> <input
+									type="text" class="form-control" th:field="*{ruc}"
+									placeholder="Ingrese el ruc de la empresa">
+
+							</div>
+						</div>
+		
 						<button type="submit" class="btn btn-success">
 							<i class="fas fa-save"></i> Grabar
 						</button>
