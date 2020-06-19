@@ -63,7 +63,7 @@ public class BranchOfficeController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/karwas/branchoffice";
+		return "redirect:/karwas/branchoffice/start";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -73,7 +73,7 @@ public class BranchOfficeController {
 			if (optional.isPresent()) {
 				model.addAttribute("branchoffice", optional.get());
 			} else {
-				return "redirect:/karwas/branchoffice";
+				return "redirect:/karwas/branchoffice/start";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -88,11 +88,11 @@ public class BranchOfficeController {
 			if (optional.isPresent()) {
 				branchOfficeService.deleteById(id);
 			} else {
-				return "redirect:/karwas/branchoffice";
+				return "redirect:/karwas/branchoffice/start";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/karwas/branchoffice";
+		return "redirect:/karwas/branchoffice/start";
 	}
 }
