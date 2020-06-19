@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<main role="main">
+		<section class="container">
+			<div class="card text-center">
+				<div class="card-header">New Payment</div>
+				<div class="card-body text-left">
+
+					<form th:action="@{/karwas/payment/save}"
+						th:object="${payment}" method="post">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="numberCard">Number card</label>
+								<input type="text" class="form-control" th:field="*{numberCard}"
+									placeholder="Ingrese una tarjeta">
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="cvv">CVV</label>
+								<textarea class="form-control" th:field="*{cvv}"
+									placeholder="Ingrese el codigo cvv"></textarea>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+
+								<label for="dateExp">Date Exp</label> <input
+									type="date" class="form-control" th:field="*{dateExp}"
+									placeholder="Ingrese la fecha de expiracion">
+
+							</div>
+						</div>
+						
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="method">Method</label> <select
+									th:field="*{method}" class="form-control">
+									<option value="">Seleccione metodo</option>
+									<option th:each="payment : ${payments}"
+										th:value="${payment.id}"
+										th:text="${payment.method}">
+									</option>
+								</select>
+							</div>
+						</div>
+						
+						<button type="submit" class="btn btn-success">
+							<i class="fas fa-save"></i> Grabar
+						</button>
+						<a th:href="@{/karwas/payment/start}" class="btn btn-danger">
+							Cancelar</a>
+					</form>
+				</div>
+				<div class="card-footer text-center"></div>
+			</div>
+
+		</section>
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
