@@ -14,9 +14,9 @@
 						th:object="${user}" method="post">
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="email">Email</label> <input type="email"
-									class="form-control" th:field="*{email}"
-									placeholder="Ingrese su correo">
+								<label for="username">Username</label> <input type="text"
+									class="form-control" th:field="*{username}"
+									placeholder="Ingrese su usuario">
 							</div>
 						</div>
 						<div class="form-row">
@@ -24,18 +24,6 @@
 								<label for="password">Password</label> <input type="password"
 									class="form-control" th:field="*{password}"
 									placeholder="Ingrese una contraseña">
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="role">Role</label> <select
-									th:field="*{role}" class="form-control">
-									<option value="">Seleccione Rol</option>
-									<option th:each="role : ${roles}"
-										th:value="${role.id}"
-										th:text="${role.nameRole}">
-									</option>
-								</select>
 							</div>
 						</div>
 						<div class="form-row">
