@@ -72,7 +72,7 @@ public class CompanyController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "/user/edit";
+		return "/company/edit";
 	}
 	
 	@GetMapping("/del/{id}")
