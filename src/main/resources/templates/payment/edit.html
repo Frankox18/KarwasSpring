@@ -10,46 +10,45 @@
 				<div class="card-header">Edit Payment</div>
 				<div class="card-body text-left">
 
-					<form th:action="@{/karwas/payment/save}"
-						th:object="${payment}" method="post">
+					<form th:action="@{/karwas/payment/save}" th:object="${payment}"
+						method="post">
+
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<div class="input-group-prepend">
+									<input type="radio" name="payment" value="visa" th:field="*{method}">
+									<img alt="visa" th:src="@{/images/visa.png}" class="mb-1" width="60" height="45">
+									<input type="radio" name="payment" value="mastercard" th:field="*{method}">
+									<img alt="mastercard" th:src="@{/images/mastercard.png}" class="mb-1" width="60" height="45">
+								</div>
+							</div>
+						</div>
+
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="numberCard">Number card</label>
-								<input type="text" class="form-control" th:field="*{numberCard}"
+								<label for="numberCard">Number card</label> <input type="text"
+									class="form-control" th:field="*{numberCard}"
 									placeholder="Ingrese una tarjeta">
 							</div>
 						</div>
 
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="cvv">CVV</label>
-								<textarea class="form-control" th:field="*{cvv}"
-									placeholder="Ingrese el codigo cvv"></textarea>
+								<label for="cvv">CVV</label> <input type="text"
+									class="form-control" th:field="*{cvv}"
+									placeholder="Ingrese el codigo cvv">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 
-								<label for="dateExp">Date Exp</label> <input
-									type="date" class="form-control" th:field="*{dateExp}"
-									placeholder="Ingrese la fecha de expiración">
+								<label for="dateExp">Date Exp</label> <input type="date"
+									class="form-control" th:field="*{dateExp}"
+									placeholder="Ingrese la fecha de expiracion">
 
 							</div>
 						</div>
-						
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="method">Method</label> <select
-									th:field="*{method}" class="form-control">
-									<option value="">Seleccione metodo</option>
-									<option th:each="payment : ${payments}"
-										th:value="${payment.id}"
-										th:text="${payment.method}">
-									</option>
-								</select>
-							</div>
-						</div>
-						
+
 						<button type="submit" class="btn btn-success">
 							<i class="fas fa-save"></i> Grabar
 						</button>
