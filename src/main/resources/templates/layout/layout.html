@@ -1,52 +1,57 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Demo Project Covid-19">
-    <meta name="author" content="Programación en Web">
-    
-	<title>Autolavado KARWAS</title>
-	
-	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-	<link rel="stylesheet" th:href="@{/css/chosen.min.css}">
-	<link rel="stylesheet" th:href="@{/css/fontawesome.min.css}">
-	<link rel="stylesheet" th:href="@{/css/solid.min.css}">	    
-    
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Demo Project Covid-19">
+<meta name="author" content="Programación en Web">
+
+<title>Autolavado KARWAS</title>
+
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/chosen.min.css}">
+<link rel="stylesheet" th:href="@{/css/fontawesome.min.css}">
+<link rel="stylesheet" th:href="@{/css/solid.min.css}">
+
 </head>
 <body>
-  	<header th:fragment="header">
-  		
-  		<nav class="navbar navbar-expand-lg navbar-dark bg-info">
-		  <a class="navbar-brand" href="#"><i class="fas fa-user-lock"></i> KARWAS</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarNav">
-		    <ul class="navbar-nav">
-		      <li class="nav-item">
-		        <a class="nav-link" th:href="@{/karwas}">Home</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">Schedule</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" th:href="@{/karwas/user/start}">Users</a>
-		      </li>
-		      
-		    </ul>
-		  </div>
+	<header th:fragment="header">
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+			<a class="navbar-brand" href="#"><i class="fas fa-user-lock"></i>
+				KARWAS</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" th:href="@{/karwas}">Home</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#">Schedule</a>
+					</li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/karwas/user/start}">Users</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/karwas/company/new}">Create Company</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/karwas/company/start}">Companys</a></li>
+
+				</ul>
+			</div>
 		</nav>
-  		
-  	</header>
-  	<footer th:fragment="footer">
-  		
-  		<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
-	    <script th:src="@{/js/popper.min.js}"></script>
-	    <script th:src="@{/js/bootstrap.min.js}"></script>
-	    <script th:src="@{/js/chosen.jquery.min.js}"></script>
-	    <script th:src="@{/js/fontawesome.min.js}"></script>
-	    <script th:src="@{/js/sweetalert.min.js}"></script>
-  	</footer>    
+
+	</header>
+	<footer th:fragment="footer">
+
+		<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+		<script th:src="@{/js/popper.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/chosen.jquery.min.js}"></script>
+		<script th:src="@{/js/fontawesome.min.js}"></script>
+		<script th:src="@{/js/sweetalert.min.js}"></script>
+	</footer>
 </body>
 </html>

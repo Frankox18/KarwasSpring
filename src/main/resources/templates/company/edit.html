@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<main role="main">
+		<section class="container">
+			<div class="card text-center">
+				<div class="card-header">Edit Company</div>
+				<div class="card-body text-left">
+
+					<form th:action="@{/karwas/company/save}"
+						th:object="${company}" method="post">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="name">Name</label> <input type="text"
+									class="form-control" th:field="*{name}"
+									placeholder="Ingrese un nombre">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+
+								<label for="ruc">RUC</label> <input
+									type="text" class="form-control" th:field="*{ruc}"
+									placeholder="Ingrese el RUC">
+
+							</div>
+						</div>
+						
+						<button type="submit" class="btn btn-success">
+							<i class="fas fa-save"></i> Grabar
+						</button>
+						<a th:href="@{/karwas/}" class="btn btn-danger">
+							Cancelar</a>
+					</form>
+				</div>
+				<div class="card-footer text-center"></div>
+			</div>
+
+		</section>
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
