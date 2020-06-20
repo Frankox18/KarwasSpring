@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
  
 import pe.edu.upc.Karwas.model.entity.Car;
+import pe.edu.upc.Karwas.model.entity.User;
 import pe.edu.upc.Karwas.service.CarService;
+import pe.edu.upc.Karwas.service.UserService;
 
 @Controller
 @RequestMapping("karwas/car")
@@ -24,6 +26,9 @@ public class CarController {
 
 	@Autowired
 	private CarService carService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping("/start")
 	public String listAll(Model model) {
@@ -39,7 +44,13 @@ public class CarController {
 	public String newCar(Model model) {
 		Car car = new Car();
 		model.addAttribute("car",car);
-		return "/car/nuevo";
+		try {
+			List<User> users = userService.readAll();
+			model.addAttribute("users", users);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "/car/login";
 	}
 	
 	@PostMapping("/save")
@@ -50,7 +61,7 @@ public class CarController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/karwas/car";
+		return "redirect:/karwas/car/start";
 	}
 	
 	@GetMapping("/edit/{id}")
@@ -58,9 +69,11 @@ public class CarController {
 		try {
 			Optional<Car> optional = carService.findById(id);
 			if(optional.isPresent()) {
-				model.addAttribute("car", optional.get());				
+				model.addAttribute("car", optional.get());	
+				List<User> users = userService.readAll();
+				model.addAttribute("users", users);
 			} else {
-				return "redirect:/karwas/car";
+				return "redirect:/karwas/car/start";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -75,12 +88,12 @@ public class CarController {
 			if (optional.isPresent()) {
 				carService.deleteById(id);
 			} else {
-				return "redirect:/karwas/car";
+				return "redirect:/karwas/car/start";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/karwas/car";
+		return "redirect:/karwas/car/start";
 	}	
 	
 }
